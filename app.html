@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Interface</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            width: 90%;
+            height: 80%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .left-panel,
+        .middle-panel,
+        .right-panel {
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .left-panel {
+            width: 25%;
+            border-right: 1px solid #ccc;
+        }
+
+        .middle-panel {
+            width: 50%;
+            border-right: 1px solid #ccc;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .chat-area {
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .chat-area p {
+            margin-bottom: 10px;
+        }
+
+        .right-panel {
+            width: 25%;
+        }
+
+        .session-list,
+        .link-list {
+            list-style: none;
+        }
+
+        .session-list li,
+        .link-list li {
+            margin-bottom: 10px;
+        }
+
+        .summary {
+            margin-bottom: 20px;
+        }
+
+        .link-box {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .input-field {
+            flex-grow: 1;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .send-button {
+            background-color: #007bff;
+            border: none;
+            border-radius: 3px;
+            color: white;
+            font-weight: bold;
+            margin-left: 5px;
+            padding: 5px 10px;
+        }
+
+        .send-button:hover {
+            background-color: #0056b3;
+            cursor: pointer;
+        }
+
+        /* New styles for collapsible sections */
+        .collapsible {
+            background-color: #f1f1f1;
+            border: none;
+            color: #444;
+            cursor: pointer;
+            margin-bottom: 5px;
+            padding: 10px;
+            text-align: left;
+            width: 100%;
+        }
+
+        .collapsible:after {
+            content: '\\002B';
+            color: #777;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .collapsible.active:after {
+            content: "\\2212";
+        }
+
+        .collapsible-content {
+            display: none;
+            margin-bottom: 10px;
+            overflow: hidden;
+            padding: 0 18px;
+        }
+
+        .subsection {
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function toggleCollapsible() {
+            this.classList.toggle('active');
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display
+                    = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <h2>Sessions</h2>
+            <ul class="session-list">
+                <li>Project 1</li>
+                <li>Project 2</li>
+                <li>Project 3</li>
+                <!-- Add more sessions here -->
+            </ul>
+        </div>
+        <div class="middle-panel">
+            <h2>Chat Area</h2>
+            <div class="chat-area">
+                <p>I can help you <strong>generate ideas for new products, apps, businesses, services and more.</strong></p>
+
+                <p>Tell me things like <strong>customer reviews for products, user feedback information, or just general pain
+                    points</strong> that you would like to solve.</p>
+
+                <p>Then, <strong></strong>I will give you a list of ideas for solutions.</strong> If you like any of them, <strong>I will build a business
+                    plan for turning the idea into a real revenue-generating business.</strong></p>
+
+                <p>Why? Well, starting with an MVP allows you to test, validate, and optimize your product while
+                    minimizing risks and costs. This approach enables you to make informed decisions, iterate quickly, and
+                    ultimately build a more successful and sustainable business.</p>
+            </div>
+            <div class="input-container">
+                <input class="input-field" type="text" placeholder="Enter things like customer feedback, user reviews, or general pain points you'd like to solve.">
+                <button class="send-button" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+        <div class="right-panel">
+            <h2>Summary</h2>
+            <div class="summary">
+                <h3>MVP Idea #1</h3>
+                <p>This is a description of the MVP idea. This is the problem it solves, and this is how it could
+                    generate revenue.</p>
+            </div>
+            <h2>Business Plan</h2>
+            <div class="link-box">
+                <button class="collapsible">Executive Summary</button>
+                <div class="collapsible-content">
+                    <div class="subsection">
+                        <p>This is a sub-section description.</p>
+                    </div>
+                </div>
+                <button class="collapsible">Company Description</button>
+                <div class="collapsible-content">
+                    <div class="subsection">
+                        <p>This is a sub-section description.</p>
+                    </div>
+                </div>
+                <button class="collapsible">Products and Services</button>
+                <div class="collapsible-content">
+                    <div class="subsection">
+                        <p>This is a sub-section description.</p>
+                    </div>
+                </div>
+                <button class="collapsible">Market Analysis</button>
+                <div class="collapsible-content">
+                    <div class="subsection">
+                        <p>This is a sub-section description.</p>
+                    </div>
+                </div>
+                <button class="collapsible">Strategy and Implementation</button>
+                <div class="collapsible-content">
+                    <div class="subsection">
+                        <p>This is a sub-section description.</p>
+                    </div>
+                </div>
+                <button class="collapsible">Organization and Management Team</button>
+                <div class="collapsible-content">
+                    <div class="subsection">
+                        <p>This is a sub-section description.</p>
+                    </div>
+                </div>
+                <button class="collapsible">Financial Plan and Projections</button>
+                <div class="collapsible-content">
+                    <div class="subsection">
+                        <p>This is a sub-section description.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var collapsibles = document.getElementsByClassName("collapsible");
+        for (var i = 0; i < collapsibles.length; i++) {
+            collapsibles[i].addEventListener("click", toggleCollapsible);
+        }
+
+        function sendMessage() {
+            var inputField = document.querySelector('.input-field');
+            var chatArea = document.querySelector('.chat-area');
+            var message = inputField.value.trim();
+
+            if (message !== '') {
+                var newMessage = document.createElement('div');
+                newMessage.innerHTML = '<hr><p>' + message + '</p><hr>';
+                chatArea.appendChild(newMessage);
+                inputField.value = '';
+            }
+        }
+    </script>
+</body>
+
+</html>
