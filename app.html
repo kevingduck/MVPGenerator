@@ -162,7 +162,7 @@
     <div class="container">
         <div class="left-panel">
             <h2>Projects</h2>
-            <br />
+            <br/>
             <ul class="session-list">
                 <li>Project 1</li>
                 <li>Project 2</li>
@@ -172,27 +172,22 @@
         </div>
         <div class="middle-panel">
             <h2>Let's talk!</h2>
-            <br />
+            <br/>
             <div class="chat-area">
-                <p>I can help you <strong>generate ideas for new products, apps, businesses, services and more.</strong>
-                </p>
+                <p>I can help you <strong>generate ideas for new products, apps, businesses, services and more.</strong></p>
 
-                <p>Tell me things like <strong>customer reviews for products, user feedback information, or just general
-                        pain
-                        points</strong> that you would like to solve.</p>
+                <p>Tell me things like <strong>customer reviews for products, user feedback information, or just general pain
+                    points</strong> that you would like to solve.</p>
 
-                <p>Then, <strong></strong>I will give you a list of ideas for solutions.</strong> If you like any of
-                    them, <strong>I will build a business
-                        plan for turning the idea into a real revenue-generating business.</strong></p>
+                <p>Then, <strong></strong>I will give you a list of ideas for solutions.</strong> If you like any of them, <strong>I will build a business
+                    plan for turning the idea into a real revenue-generating business.</strong></p>
 
                 <p>Why? Well, starting with an MVP allows you to test, validate, and optimize your product while
-                    minimizing risks and costs. This approach enables you to make informed decisions, iterate quickly,
-                    and
+                    minimizing risks and costs. This approach enables you to make informed decisions, iterate quickly, and
                     ultimately build a more successful and sustainable business.</p>
             </div>
             <div class="input-container">
-                <input class="input-field" type="text"
-                    placeholder="Enter things like customer feedback, user reviews, or general pain points you'd like to solve.">
+                <input class="input-field" type="text" placeholder="Enter things like customer feedback, user reviews, or general pain points you'd like to solve.">
                 <button class="send-button" onclick="sendMessage()">Send</button>
             </div>
         </div>
@@ -258,39 +253,18 @@
             collapsibles[i].addEventListener("click", toggleCollapsible);
         }
 
-        async function sendMessage() {
-            var inputField = document.querySelector(".input-field");
-            var chatArea = document.querySelector(".chat-area");
+        function sendMessage() {
+            var inputField = document.querySelector('.input-field');
+            var chatArea = document.querySelector('.chat-area');
             var message = inputField.value.trim();
 
-            if (message !== "") {
-                var userMessage = document.createElement("div");
-                userMessage.innerHTML = "<hr><p><strong>You:</strong> " + message + "</p>";
-                chatArea.appendChild(userMessage);
-
-                var assistantMessage = document.createElement("div");
-                assistantMessage.innerHTML = "<p><strong>Assistant:</strong> Loading response...</p>";
-                chatArea.appendChild(assistantMessage);
-
-                inputField.value = "";
-                var assistantResponse = await fetchMessageFromAssistant(message);
-                assistantMessage.innerHTML = "<p><strong>Assistant:</strong> " + assistantResponse + "</p>";
+            if (message !== '') {
+                var newMessage = document.createElement('div');
+                newMessage.innerHTML = '<hr><p>' + message + '</p><hr>';
+                chatArea.appendChild(newMessage);
+                inputField.value = '';
             }
         }
-
-
-        async function fetchMessageFromAssistant(message) {
-            const response = await fetch("/.netlify/functions/call_openai_api", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ userMessage: message }),
-            });
-
-            const result = await response.json();
-            return result.systemMessage;
-        }
-
-
     </script>
 </body>
 
