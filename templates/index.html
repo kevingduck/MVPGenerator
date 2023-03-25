@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MVP Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <script defer src="{{ url_for('static', filename='index.js') }}"></script>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="#" class="logo">MVP Generator</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Transform Your Product Development with AI-Powered MVP Insights</h1>
+    <p>Unleash the full potential of your startup with MVP Generator – an intelligent platform that identifies and
+      prioritizes the most promising product concepts based on comprehensive customer feedback and competitive landscape
+      analysis.</p>
+    <button id="cta-button">Join the Exclusive Early Access List</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2023 MVP Generator. All rights <a href="mvp.html">reserved.</a> </p>
+  </footer>
+
+  <!-- Modal for collecting user information -->
+  <div class="modal" id="signup-modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Secure Your Spot for Early Access</h2>
+      <p>Experience the innovative power of MVP Generator before anyone else. Register now to join our select group of
+        early access users and receive priority updates about our upcoming launch.</p>
+      <form id="signup-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <button type="submit">Submit</button>
+      </form>
+    </div> 
+  </div>
+</body>
+
+</html>
+
+<style>
+  /* styles.css */
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  header {
+    background-color: #1a4b7d;
+    padding: 20px 0;
+  }
+
+  .logo {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 20px;
+  }
+
+  .hero {
+    background-color: #1a4b7d;
+    padding: 100px 20px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+
+  .hero p {
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+
+  #cta-button {
+    background-color: #5d93ca;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  #cta-button:hover {
+    background-color: #3a6f9e;
+  }
+
+  footer {
+    background-color: #1a4b7d;
+    padding: 20px 0;
+    text-align: center;
+    color: #fff;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .close:hover {
+    color: #000;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  input {
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+  }
+
+  button[type="submit"] {
+    background-color: #1a4b7d;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #3a6f9e;
+  }
+</style>

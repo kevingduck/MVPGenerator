@@ -1,0 +1,205 @@
+<!-- This is the first thing you see in an HTML file. It tells the browser what version of HTML is being used. -->
+<html> <!-- This is the root element of the HTML document. -->
+
+<head> <!-- This is a container for all the head elements. -->
+  <title></title>
+  <!-- This is the title of the page, which is shown in the browser's title bar or in the page's tab. -->
+</head>
+
+<body>
+  <!-- This is a container for all the visible contents, such as headings, paragraphs, images, hyperlinks, tables, lists, etc. -->
+</body>
+
+</html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MVP Suggester</title>
+  <link rel="stylesheet" href="static/styles.css">
+  <script defer src="index.js"></script>
+</head>
+
+<body>
+    <header>
+      <nav>
+        <a href="#" class="logo">MVP Suggester</a>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Discover Your Next MVP with AI-Powered Insights</h1>
+      <p>MVP Suggester helps you identify the most viable product ideas based on customer feedback and competitor
+        analysis, saving you time and resources.</p>
+      <button id="cta-button">Get Started for Free</button>
+    </section>
+    <div class="container">
+    <section id="features">
+      <div class="feature">
+        <h2>Smart MVP Recommendations</h2>
+        <p>Our advanced AI algorithms process customer feedback and competitor data to suggest the most promising MVP
+          ideas tailored to your constraints.</p>
+      </div>
+      <div class="feature">
+        <h2>Focus on What Matters</h2>
+        <p>MVP Suggester ranks features based on their potential impact, helping you prioritize the most crucial aspects
+          of your product.</p>
+      </div>
+      <div class="feature">
+        <h2>Stay Ahead of the Competition</h2>
+        <p>Our app compares your proposed MVP with competitors, highlighting gaps and opportunities to differentiate
+          your product.</p>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <h2>Flexible Pricing for Every Stage of Your Journey</h2>
+      <div class="price-tier">
+        <h3>Basic Plan</h3>
+        <p>Free</p>
+        <ul>
+          <li>Basic MVP idea generation</li>
+          <li>Limited feature suggestions</li>
+          <li>Basic competitor analysis</li>
+        </ul>
+      </div>
+      <div class="price-tier">
+        <h3>Pro Plan</h3>
+        <p>Contact Us for Pricing</p>
+        <ul>
+          <li>Advanced MVP idea generation</li>
+          <li>In-depth feature suggestions</li>
+          <li>Detailed competitor analysis</li>
+        </ul>
+      </div>
+      <div class="price-tier">
+        <h3>Enterprise Plan</h3>
+        <p>Contact Us for Pricing</p>
+        <ul>
+          <li>Custom MVP suggestions</li>
+          <li>White-labeling</li>
+          <li>API access</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <h2>Trusted by Innovative Startups and Businesses</h2>
+      <blockquote>
+        <p>"MVP Suggester helped us identify the perfect product to launch our business. It saved us time and money, and
+          we couldn't be happier with the results."</p>
+        <cite>- Jane Doe, Startup Founder</cite>
+      </blockquote>
+
+      <blockquote>
+        <p>"The insights provided by MVP Suggester enabled us to pivot our product strategy and focus on what truly
+          matters. Highly recommended for any startup!"</p>
+        <cite>- John Smith, Entrepreneur</cite>
+      </blockquote>
+    </section>
+
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <details>
+        <summary>How does MVP Suggester work?</summary>
+        <p>Our AI-powered algorithms process customer feedback and competitor data to suggest the most promising MVP
+          ideas for your specific needs and constraints.</p>
+      </details>
+      <details>
+        <summary>What is the difference between the Basic, Pro, and Enterprise plans?</summary>
+        <p>The Basic plan offers limited MVP idea generation, feature suggestions, and competitor analysis. The Pro plan
+          provides more advanced features, while the Enterprise plan includes custom solutions, white-labeling, and API
+          access. Contact us for pricing on the Pro and Enterprise plans.</p>
+      </details>
+      <details>
+        <summary>Can I change plans later?</summary>
+        <p>Yes, you can upgrade or downgrade your plan at any time. Contact our support team for assistance with
+          changing your plan.</p>
+      </details>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>If you have any questions or need assistance, please reach out to our support team:</p>
+      <p>Email: support@mvpsuggester.com</p>
+      <p>Phone: +1 (555) 123-4567</p>
+    </section>
+
+    <footer>
+      <p>&copy; 2023 MVP Suggester. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal for collecting user information -->
+    <div class="modal" id="signup-modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Sign Up for More Information</h2>
+        <form id="signup-form">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="container">
+</body>
+
+</html>
+
+<style>
+  /* Add custom styles here */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Style the navigation bar */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 1rem;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+  }
+
+  nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  /* Style the hero section */
+  .hero {
+    text-align: center;
+    padding: 5rem 0;
+    background-color: #f0f0f0;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+    font-size:
+</style>
