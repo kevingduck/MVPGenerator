@@ -1,24 +1,11 @@
-<!-- This is the first thing you see in an HTML file. It tells the browser what version of HTML is being used. -->
-<html> <!-- This is the root element of the HTML document. -->
-
-<head> <!-- This is a container for all the head elements. -->
-  <title></title>
-  <!-- This is the title of the page, which is shown in the browser's title bar or in the page's tab. -->
-</head>
-
-<body>
-  <!-- This is a container for all the visible contents, such as headings, paragraphs, images, hyperlinks, tables, lists, etc. -->
-</body>
-
-</html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MVP Suggester</title>
-  <link rel="stylesheet" href="static/styles.css">
-  <script defer src="index.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script defer src="{{ url_for('static', filename='index.js') }}"></script>
 </head>
 
 <body>

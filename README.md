@@ -1,2 +1,3 @@
-# MVPGenerator
-Tools for turning feedback and reviews into new product/ business ideas
+# MVP Generator
+
+App for generating MVP ideas from user reviews/ feedback
