@@ -33,6 +33,7 @@ fqdn
 frozenlist
 gitdb
 GitPython
+gunicorn
 idna
 ipykernel
 ipython
