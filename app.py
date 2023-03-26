@@ -40,7 +40,6 @@ def generate_response():
     response = openai.ChatCompletion.create(
         model="gpt-4",  # Update the model to the desired version
         messages=messages,
-        max_tokens=150,
         n=1,
         temperature=0.7,
     )

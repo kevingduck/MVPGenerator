@@ -263,6 +263,7 @@
             var newMessage = document.createElement('div');
             newMessage.innerHTML = '<hr><strong>' + role + ':</strong><br><p>' + message + '</p><hr>';
             chatArea.appendChild(newMessage);
+            return newMessage;
         }
 
         function toggleCollapsible() {
@@ -289,6 +290,9 @@
                 addMessage('User', message);
                 inputField.value = '';
 
+                // Show "Thinking..." message
+                var thinkingMessage = addMessage('Assistant', 'Thinking...');
+
                 // Send message to Flask server and receive ChatGPT response
                 $.ajax({
                     type: 'POST',
@@ -296,13 +300,15 @@
                     contentType: 'application/json;charset=UTF-8',
                     data: JSON.stringify({ input: message, messages: existingMessages }),
                     success: function (response) {
-                        addMessage('Assistant', response.message);
+                        // Update "Thinking..." message with the actual response
+                        thinkingMessage.innerHTML = '<hr><strong>Assistant:</strong><br><p>' + response.message + '</p><hr>';
                         existingMessages = response.messages;
                     },
                 });
             }
         }
     </script>
+
 
 </body>
 
