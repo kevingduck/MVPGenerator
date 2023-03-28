@@ -38,7 +38,7 @@ def generate_response():
     messages.append({"role": "user", "content": user_input})
 
     response = openai.ChatCompletion.create(
-        model="gpt-4",  # Update the model to the desired version
+        model="gpt-3.5-turbo",  # Update the model to the desired version
         messages=messages,
         n=1,
         temperature=0.7,

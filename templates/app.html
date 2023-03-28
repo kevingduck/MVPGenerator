@@ -202,63 +202,13 @@
             <div class="input-container">
                 <input class="input-field" type="text"
                     placeholder="Enter things like customer feedback, user reviews, or general pain points you'd like to solve.">
-                <button class="send-button" onclick="sendMessage()">Send</button>
+                <button class="send-button">Send</button>
             </div>
         </div>
         <div class="right-panel">
-            <h2>MVP Idea #1</h2>
-            <br />
-            <div class="summary">
-                <h3>The Thinginator</h3>
-                <br />
-                <p>This is a description of the MVP idea. This is the problem it solves, and this is how it could
-                    generate revenue.</p>
-            </div>
             <h2>Business Plan</h2>
-            <div class="link-box">
-                <button class="collapsible">Executive Summary</button>
-                <div class="collapsible-content">
-                    <div class="subsection">
-                        <p>This is a sub-section description.</p>
-                    </div>
-                </div>
-                <button class="collapsible">Company Description</button>
-                <div class="collapsible-content">
-                    <div class="subsection">
-                        <p>This is a sub-section description.</p>
-                    </div>
-                </div>
-                <button class="collapsible">Products and Services</button>
-                <div class="collapsible-content">
-                    <div class="subsection">
-                        <p>This is a sub-section description.</p>
-                    </div>
-                </div>
-                <button class="collapsible">Market Analysis</button>
-                <div class="collapsible-content">
-                    <div class="subsection">
-                        <p>This is a sub-section description.</p>
-                    </div>
-                </div>
-                <button class="collapsible">Strategy and Implementation</button>
-                <div class="collapsible-content">
-                    <div class="subsection">
-                        <p>This is a sub-section description.</p>
-                    </div>
-                </div>
-                <button class="collapsible">Organization and Management Team</button>
-                <div class="collapsible-content">
-                    <div class="subsection">
-                        <p>This is a sub-section description.</p>
-                    </div>
-                </div>
-                <button class="collapsible">Financial Plan and Projections</button>
-                <div class="collapsible-content">
-                    <div class="subsection">
-                        <p>This is a sub-section description.</p>
-                    </div>
-                </div>
-            </div>
+            <button class="generate-button" onclick="generateBusinessPlan()">Generate</button>
+            <div class="markdown-content" id="markdown-content"></div>
         </div>
     </div>
 
