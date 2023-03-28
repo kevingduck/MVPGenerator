@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const markdownContentElement = document.getElementById('markdown-content');
         markdownContentElement.innerHTML = '<p>Generating business plan... this could take a few minutes...</p>';
     }
-    
+
     function generateBusinessPlan() {
         showLoadingIndicator();
     
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const latestMessage = chatArea.lastElementChild.textContent;
         const requestMessage = "Use this information to turn this MVP idea into a real business. Generate a full business plan";
         const inputMessage = latestMessage + ' ' + requestMessage;
-
+    
         console.log('Generating business plan ...')
     
         // Send message to Flask server and receive ChatGPT response
@@ -90,20 +90,24 @@ document.addEventListener('DOMContentLoaded', () => {
             contentType: 'application/json;charset=UTF-8',
             data: JSON.stringify({ input: inputMessage, messages: existingMessages }),
             success: function (response) {
-                // Handle the response and display the markdown content
+                // Handle the response and display the plain text content
                 console.log(response['message']);
-                displayMarkdownContent(response['response']);
+                displayTextContent(response['message']);
             },
             error: function () {
                 console.error('Error generating business plan');
             }
         });
     }
+    
 
-    function displayMarkdownContent(markdown) {
-        const markdownContentElement = document.getElementById('markdown-content');
-        markdownContentElement.innerHTML = marked(markdown);
-    }
+
+    function displayTextContent(text) {
+        console.log('Received text:', text);
+        const textContentElement = document.getElementById('markdown-content');
+        textContentElement.innerHTML = text;
+    }    
+
 
     window.generateBusinessPlan = generateBusinessPlan;
 
