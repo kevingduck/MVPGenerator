@@ -143,19 +143,25 @@
         .subsection {
             margin-bottom: 10px;
         }
-    </style>
-    <script>
-        function toggleCollapsible() {
-            this.classList.toggle('active');
-            var content = this.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display
-                    = "none";
-            } else {
-                content.style.display = "block";
-            }
+
+        .toggle-projects {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            padding: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
         }
-    </script>
+
+        .toggle-projects:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
 
 
@@ -163,18 +169,18 @@
 
 <body>
     <div class="container">
-        <div class="left-panel">
+        <button class="toggle-projects" id="toggle-projects-button">Hide 🫣</button>
+        <div class="left-panel" id="projects-panel">
             <h2>Projects</h2>
             <br />
             <ul class="session-list">
                 <li>Project 1</li>
                 <li>Project 2</li>
                 <li>Project 3</li>
-                <!-- Add more sessions here -->
             </ul>
         </div>
         <div class="middle-panel">
-            <h2>Let's talk!</h2>
+            <h2>Research analyzer</h2>
             <br />
             <div class="chat-area">
                 <p>I can help you <strong>generate ideas for new products, apps, businesses, services and more.</strong>
@@ -255,60 +261,6 @@
             </div>
         </div>
     </div>
-    <script>
-        var existingMessages = [];
-
-        function addMessage(role, message) {
-            var chatArea = document.querySelector('.chat-area');
-            var newMessage = document.createElement('div');
-            newMessage.innerHTML = '<hr><strong>' + role + ':</strong><br><p>' + message + '</p><hr>';
-            chatArea.appendChild(newMessage);
-            return newMessage;
-        }
-
-        function toggleCollapsible() {
-            this.classList.toggle('active');
-            var content = this.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
-        }
-
-        var collapsibles = document.getElementsByClassName("collapsible");
-        for (var i = 0; i < collapsibles.length; i++) {
-            collapsibles[i].addEventListener("click", toggleCollapsible);
-        }
-
-        function sendMessage() {
-            var inputField = document.querySelector('.input-field');
-            var chatArea = document.querySelector('.chat-area');
-            var message = inputField.value.trim();
-
-            if (message !== '') {
-                addMessage('User', message);
-                inputField.value = '';
-
-                // Show "Thinking..." message
-                var thinkingMessage = addMessage('Assistant', 'Thinking...');
-
-                // Send message to Flask server and receive ChatGPT response
-                $.ajax({
-                    type: 'POST',
-                    url: '/generate-response',
-                    contentType: 'application/json;charset=UTF-8',
-                    data: JSON.stringify({ input: message, messages: existingMessages }),
-                    success: function (response) {
-                        // Update "Thinking..." message with the actual response
-                        thinkingMessage.innerHTML = '<hr><strong>Assistant:</strong><br><p>' + response.message + '</p><hr>';
-                        existingMessages = response.messages;
-                    },
-                });
-            }
-        }
-    </script>
-
 
 </body>
 
