@@ -4,6 +4,10 @@
 
 `export OPENAI_KEY=replace_with_your_key`
 
+### install requirements
+
+pip install -r requirements.txt
+
 ### To run, use this from the root:
 
 `flask run`
