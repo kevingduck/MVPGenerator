@@ -170,12 +170,10 @@
     <div class="container">
         <button class="toggle-projects" id="toggle-projects-button">Hide 🫣</button>
         <div class="left-panel" id="projects-panel">
-            <h2>Projects</h2>
+            <h2>Projects <button id="new-session-button">New</button></h2>
             <br />
-            <ul class="session-list">
-                <li>Project 1</li>
-                <li>Project 2</li>
-                <li>Project 3</li>
+            <ul class="session-list" id="session-list">
+                <li id="placeholder">No sessions yet</li>
             </ul>
         </div>
         <div class="middle-panel">
@@ -210,6 +208,48 @@
             <div class="markdown-content" id="markdown-content"></div>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            // New session button
+            $("#new-session-button").on("click", function () {
+                // set session name to current timestamp
+                const sessionName = new Date().toLocaleString();
+                if (sessionName) {
+                    const newSession = $("<li></li>").text(sessionName).addClass("session");
+                    $("<button></button>").text("Delete").addClass("delete-session").appendTo(newSession);
+                    $("#session-list").append(newSession);
+                    localStorage.setItem(sessionName, "");
+                }
+            });
+
+            // Delete session button
+            $(document).on("click", ".delete-session", function (e) {
+                e.stopPropagation();
+                const sessionName = $(this).parent().text().slice(0, -6);
+                const confirmation = confirm("Are you sure you want to delete this session?");
+                if (confirmation) {
+                    localStorage.removeItem(sessionName);
+                    $(this).parent().remove();
+                }
+            });
+
+            // Load session data
+            $(document).on("click", ".session", function () {
+                const sessionName = $(this).text().slice(0, -6);
+                const sessionData = localStorage.getItem(sessionName);
+                $(".chat-area").html(sessionData);
+            });
+
+            // Store session data
+            $(".send-button").on("click", function () {
+                const inputText = $(".input-field").val();
+                $(".chat-area").append($("<p></p>").text(inputText));
+                const sessionName = $(".session-list .active").text().slice(0, -6);
+                localStorage.setItem(sessionName, $(".chat-area").html());
+                $(".input-field").val("");
+            });
+        });
+    </script>
 
 </body>
 

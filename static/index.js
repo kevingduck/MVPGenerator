@@ -75,14 +75,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function generateBusinessPlan() {
         showLoadingIndicator();
-    
+
         const chatArea = document.querySelector('.chat-area');
         const latestMessage = chatArea.lastElementChild.textContent;
         const requestMessage = "Use this information to turn this MVP idea into a real business. Generate a full business plan";
         const inputMessage = latestMessage + ' ' + requestMessage;
-    
+
         console.log('Generating business plan ...')
-    
+
         // Send message to Flask server and receive ChatGPT response
         $.ajax({
             type: 'POST',
@@ -99,18 +99,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    
+
 
 
     function displayTextContent(text) {
         console.log('Received text:', text);
         const textContentElement = document.getElementById('markdown-content');
         textContentElement.innerHTML = text;
-    }    
-
+    }
 
     window.generateBusinessPlan = generateBusinessPlan;
-
 
 });
 
