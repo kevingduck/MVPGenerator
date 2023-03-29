@@ -33,12 +33,12 @@ def generate_response():
     if 'messages' in data:
         messages = data['messages']
     else:
-        messages = [{"role": "system", "content": "You are a helpful assistant who is good at business, strategy and designing solutions that can generate revenue. You will help me generate MVP ideas and business plans to go along with them. "}]
+        messages = [{"role": "system", "content": "You are a helpful assistant who is good at business, strategy and designing solutions that can generate revenue. You will help me generate MVP ideas and business plans to go along with them. Respond with 'Hello! Please tell me user reviews, customer feebdack or general pain points.' if you understand"}]
 
     messages.append({"role": "user", "content": user_input})
 
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",  # Update the model to the desired version
+        model="gpt-4",  # Update the model to the desired version
         messages=messages,
         n=1,
         temperature=0.7,

@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const chatArea = document.querySelector('.chat-area');
         const latestMessage = chatArea.lastElementChild.textContent;
-        const requestMessage = "Use this information to turn this MVP idea into a real business. Generate a full business plan";
+        const requestMessage = "Use this information to create an MVP idea and then a plan to turn it into a real business. Generate a full business plan. Use figures and projections when possible. Format it nicely in markdown.";
         const inputMessage = latestMessage + ' ' + requestMessage;
 
         console.log('Generating business plan ...')
